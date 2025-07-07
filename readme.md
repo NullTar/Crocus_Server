@@ -4,6 +4,8 @@
 
 这是一个 Spring Boot 和 Kotlin 搭配的简单例子，同时包含 Ktor, 代码并不完整，可以作为参考。
 
+[En](readme.md)
+
 ---
 
 ## 包含的功能
@@ -11,7 +13,7 @@
 - 用户注册 / 登录 / 注销
 - JWT 令牌签发与验证
 - 二次验证支持（基于 One-Time Password）
-- 使用 MinIO 进行对象存储与 Presigned URL 授权
+- 使用 MinIO 进行对象存储
 - 内容同步至 Elasticsearch, 以提供搜索服务
 - Redis 缓存与数据加速,Ehcache 本地缓存优化
 - 自定义异常统一处理机制
@@ -54,20 +56,20 @@
 
 - `controller/`：HTTP 接口控制层，处理前端请求
 - `entity/`：数据库实体类、请求/响应 DTO 及其扩展方法
-- `enum/`：枚举类型定义（如角色、状态等）
+- `enum/`：枚举类型定义
 - `mapper/`：MyBatis-Plus 映射层，执行数据库操作
 - `service/`：业务逻辑处理
 - `utils/`：通用工具类
-    - `config/`：核心配置类（如 Bean 注册、Web 配置等）
+    - `config/`：核心配置类
     - `database/`：Druid 多数据源配置与封装
     - `elastic/`：Elasticsearch 搜索逻辑封装
     - `email/`：邮件发送支持
-    - `encrypt/`：加密解密、签名、Token 生成
+    - `encrypt/`：加密解密
     - `exception/`：统一异常处理
     - `files/`：MinIO 文件上传、下载、URL 生成等功能
     - `json/`：JSON 序列化/反序列化封装
     - `log/`：日志记录与过滤器
-    - `permission/`：JWT 鉴权
+    - `permission/`：Token 生成, JWT 鉴权
     - `regex/`：正则工具类
     - `response/`：标准化响应体封装
     - `sql/`：SQL 过滤工具
