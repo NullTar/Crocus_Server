@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎加入！</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6;text-align: center">
+<div style="background: #f5f5f5; border-radius: 8px;margin-left: 40px;margin-right: 40px;box-shadow: 0 0 4px #bebebe">
+    <h3 style="padding-top: 24px">欢迎 <span th:text="${account}" style="color: #007bff;"></span>！</h3>
+
+    <p style="font-size: 14px; color: #8f8f8f;" >验证您的账户后，即可登录</p>
+    <p style="font-size: 22px;">您的验证码: </p>
+
+    <p style="font-size: 22px; font-weight: bold;">
+        <a style="width: 40px;background: #ee4c3f;color: white;padding: 8px;border-radius: 8px"><span th:text="${code}"></span></a>
+    </p>
+
+    <p>请在 <strong style="color: #ee4c3f;">8 分钟</strong> 内使用该验证码</p>
+    <p style="color: #707070">如果您没有请求此验证码, 请忽略此邮件</p>
+    <strong style="color: #ee4c3f; font-size: 12px;">无操作 10 分钟后将自动删除信息</strong>
+    <hr style="border: none; border-top: 1px solid #ddd;">
+    <p style="color: #888; font-size: 12px; padding-bottom: 8px">
+        这是一封自动发送的电子邮件。如果我们误向您发送了此邮件，则您无需执行任何操作。
+        <strong style="color: #ee4c3f;font-size: 12px;">请勿回复</strong>
+    </p>
+</div>
+
+<div style="background: #f5f5f5; border-radius: 8px;margin-left: 40px;margin-right: 40px;box-shadow: 0 0 4px #bebebe">
+    <h3 style="padding-top: 24px">Welcome <span th:text="${account}" style="color: #007bff;"></span>!</h3>
+
+    <p style="font-size: 14px; color: #8f8f8f;">You can log in after verifying your account</p>
+    <p style="font-size: 22px;">Verification Code: </p>
+
+    <p style="font-size: 22px; font-weight: bold;">
+        <a style="width: 40px;background: #ee4c3f;color: white;padding: 8px;border-radius: 8px"><span th:text="${code}"></span></a>
+    </p>
+
+    <p>Please use this verification code within<strong style="color: #ee4c3f;"> 8 minutes</strong></p>
+    <p style="color: #707070">If you didn't request this verification code, please ignore the email</p>
+    <strong style="color: #ee4c3f; font-size: 12px;">Information will be automatically deleted after 10 minutes of inactivity</strong>
+    <hr style="border: none; border-top: 1px solid #ddd;">
+    <p style="color: #888; font-size: 12px; padding-bottom: 8px">
+        This is an email that is sent automatically. If we send you this message by mistake, you don't need to do anything.
+        <strong style="color: #ee4c3f;font-size: 12px;">Please do not reply</strong>
+    </p>
+</div>
+</body>
+</html>

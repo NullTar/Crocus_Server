@@ -1,0 +1,121 @@
+server:
+  port: 8088 # 端口
+
+spring:
+  application:
+    name: crocus-server
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 30MB
+      max-request-size: 30MB
+  redis:
+    client-name: crocus-redis
+    database: 0
+    host: localhost
+    port: 6899 # redis 端口
+    password:  # redis 密码
+    connect-timeout: 30000
+    lettuce:
+      pool:
+        max-active: 10
+        min-idle: 4
+        max-wait: 10000
+        max-idle: 8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      first:
+        name: First
+        # 数据库相关配置
+        url: jdbc:mysql://localhost:3306/crocus?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password:
+        initialSize: 10
+        minIdle: 5
+        maxActive: 50
+        maxWait: 60000  # 配置获取连接等待超时的时间
+        timeBetweenEvictionRunsMillis: 60000 # 检测需要关闭的空闲连接
+        minEvictableIdleTimeMillis: 300000 #最小生存的时间
+        #        maxEvictableIdleTimeMillis: 900000 #最大生存的时间
+        validationQuery: SELECT 1
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true #打开PSCache
+        maxPoolPreparedStatementPerConnectionSize: 20
+        filters: stat,wall
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        useGlobalDataSourceStat: true # 合并多个DruidDataSource的监控数据
+      second:
+        name: Second
+        # 数据库相关配置
+        url: jdbc:mysql://localhost:3306/crocus?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password:
+        initialSize: 10
+        minIdle: 5
+        maxActive: 50
+        maxWait: 60000  # 配置获取连接等待超时的时间
+        timeBetweenEvictionRunsMillis: 60000 # 检测需要关闭的空闲连接
+        minEvictableIdleTimeMillis: 300000 #最小生存的时间
+        # maxEvictableIdleTimeMillis: 900000 #最大生存的时间
+        validationQuery: SELECT 1
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true #打开PSCache
+        maxPoolPreparedStatementPerConnectionSize: 20
+        filters: stat,wall
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        useGlobalDataSourceStat: true # 合并多个DruidDataSource的监控数据
+  mail:
+    default-encoding: utf-8
+    host: smtp.qq.com
+    username:
+    password:
+    port: 465
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            enable: true
+  jwt:
+    # jwt 密钥 建议频繁更新
+    secret: 8Sj43XJHxD7rkMHtQI6pySa8hL094uEm
+    expiration: 3600000
+  elasticsearch:
+    # Elasticsearch 相关配置
+    uris: http://localhost:9201
+    socket-timeout: 10s
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    encoding: UTF-8
+    suffix: .html
+    mode: HTML
+
+minio:
+  # minio 相关配置
+  endpoint: http://127.0.0.1:9000
+  bucket-name: "crocus"
+  access-key: ""
+  secret-key: ""
+
+
+mybatis-plus:
+  global-config:
+    banner: false
+    db-config:
+      update-strategy: not_null
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
+    cache-enabled: false
+
+
+
+
